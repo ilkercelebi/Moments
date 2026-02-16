@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminday - Meaningful Moments in Style</title>
+    <meta name="description" content="Beautiful countdown widgets for your Home Screen & Lock Screen.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            default: '#4A4AF4', // Vibrant Purple/Blue
+                            hover: '#3D3DD9',
+                            dark: '#1A1A1A',     // Dark Background
+                            darker: '#111111',   // Darker Background
+                            card: '#252525',     // Card Background
+                            light: '#E0E0E0',    // Light Text
+                            muted: '#A0A0A0',    // Muted Text
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Utilities */
+        .glass-effect {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 0%, #A0A0FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .phone-mockup-shadow {
+            box-shadow: 0 25px 50px -12px rgba(74, 74, 244, 0.25);
+        }
+
+        /* Smooth reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white antialiased selection:bg-brand-default selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 glass-effect border-b border-white/5">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold tracking-tight hover:opacity-80 transition-opacity">
+                Reminday
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-sm font-medium text-brand-muted hover:text-white transition-colors">Features</a>
+                <a href="#support" class="text-sm font-medium text-brand-muted hover:text-white transition-colors">Support</a>
+                <a href="#" class="bg-white text-brand-dark px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-light transition-all transform hover:scale-105">
+                    Download
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-darker border-b border-white/5 p-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#features" class="text-brand-muted hover:text-white transition-colors">Features</a>
+                <a href="#support" class="text-brand-muted hover:text-white transition-colors">Support</a>
+                <a href="#" class="text-brand-default font-semibold">Download App</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
+        <div class="container mx-auto text-center max-w-4xl">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-default/10 border border-brand-default/20 text-brand-default text-xs font-semibold mb-8 reveal">
+                <span class="w-2 h-2 rounded-full bg-brand-default animate-pulse"></span>
+                Now available on App Store
+            </div>
+            
+            <!-- Headline -->
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight reveal" style="transition-delay: 100ms;">
+                Track Your <span class="gradient-text">Meaningful Moments</span> in Style
+            </h1>
+            
+            <!-- Subheadline -->
+            <p class="text-lg md:text-xl text-brand-muted mb-10 max-w-2xl mx-auto reveal" style="transition-delay: 200ms;">
+                Beautiful countdown widgets for your Home Screen & Lock Screen. Never miss an important date again with Reminday.
+            </p>
+            
+            <!-- CTA Button -->
+            <div class="mb-16 reveal" style="transition-delay: 300ms;">
+                <a href="#" class="inline-flex items-center justify-center gap-3 bg-brand-default hover:bg-brand-hover text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-brand-default/25 group">
+                    <i class="fa-brands fa-apple text-2xl"></i>
+                    Download on the App Store
+                    <i class="fa-solid fa-arrow-right opacity-0 -ml-4 group-hover:ml-0 group-hover:opacity-100 transition-all"></i>
+                </a>
+            </div>
+
+            <!-- Phone Mockup Placeholder -->
+            <div class="relative mx-auto w-full max-w-[300px] md:max-w-[340px] aspect-[9/19] bg-brand-card rounded-[3rem] border-8 border-brand-darker phone-mockup-shadow reveal" style="transition-delay: 400ms;">
+                <!-- Notch -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-7 bg-brand-darker rounded-b-2xl z-20"></div>
+                
+                <!-- Screen Content Placeholder -->
+                <div class="w-full h-full rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-gray-800 to-black relative flex flex-col items-center justify-center p-6">
+                    
+                    <!-- Decorative Elements -->
+                    <div class="w-full aspect-square bg-brand-default/20 rounded-2xl mb-4 animate-pulse flex items-center justify-center">
+                        <i class="fa-regular fa-clock text-4xl text-brand-default/50"></i>
+                    </div>
+                    <div class="w-2/3 h-4 bg-white/10 rounded-full mb-3"></div>
+                    <div class="w-1/2 h-4 bg-white/10 rounded-full"></div>
+
+                    <!-- Floating Widgets -->
+                    <div class="absolute bottom-12 left-6 right-6 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                         <div class="w-full flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/50 flex items-center justify-center">
+                                <i class="fa-solid fa-plane text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="w-24 h-3 bg-white/20 rounded-full mb-1"></div>
+                                <div class="w-16 h-2 bg-white/10 rounded-full"></div>
+                            </div>
+                         </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-brand-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Reminday?</h2>
+                <p class="text-brand-muted max-w-2xl mx-auto">Designed with attention to detail to make your countdowns personal and beautiful.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-3xl bg-brand-card border border-white/5 hover:border-brand-default/30 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-default/10 flex items-center justify-center mb-6 group-hover:bg-brand-default/20 transition-colors">
+                        <i class="fa-solid fa-mobile-screen-button text-brand-default text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Lock Screen Widgets</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Keep your most important events right on your Lock Screen for instant visibility.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-3xl bg-brand-card border border-white/5 hover:border-brand-default/30 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                        <i class="fa-solid fa-palette text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Premium Design</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Customize with premium fonts and curated colors to match your aesthetic perfectly.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-3xl bg-brand-card border border-white/5 hover:border-brand-default/30 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                        <i class="fa-solid fa-cloud text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">iCloud Sync</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Seamlessly syncs across all your devices via iCloud. Your memories, everywhere.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="p-8 rounded-3xl bg-brand-card border border-white/5 hover:border-brand-default/30 transition-all hover:-translate-y-1 group">
+                    <div class="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-colors">
+                        <i class="fa-solid fa-shield-halved text-green-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Privacy Focused</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">Your data stays on your device and in your personal iCloud. We don't track you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="py-24 px-6 relative overflow-hidden">
+        <!-- Background decorative blob -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-default/5 rounded-full blur-3xl -z-10"></div>
+
+        <div class="container mx-auto max-w-3xl">
+            <div class="text-center mb-16">
+                <span class="text-brand-default font-semibold text-sm tracking-wider uppercase mb-2 block">Support</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Here to Help</h2>
+                <p class="text-brand-muted text-lg">Have questions or need assistance? We're just an email away.</p>
+                
+                <a href="mailto:support@reminday.app" class="inline-flex items-center gap-3 mt-8 text-2xl md:text-3xl font-bold text-white hover:text-brand-default transition-colors border-b-2 border-transparent hover:border-brand-default pb-1">
+                    support@reminday.app
+                    <i class="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                </a>
+            </div>
+
+            <!-- FAQ -->
+            <div class="space-y-4">
+                <details class="group bg-brand-card rounded-2xl border border-white/5 overflow-hidden">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                        <span class="font-semibold text-lg">How do I add a widget to my Home Screen?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fa-solid fa-chevron-down text-brand-muted"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-brand-muted leading-relaxed">
+                        Long press on an empty area of your Home Screen until the apps jiggle. Tap the "+" button in the top left corner, search for "Reminday", and select your preferred widget size.
+                    </div>
+                </details>
+
+                <details class="group bg-brand-card rounded-2xl border border-white/5 overflow-hidden">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                        <span class="font-semibold text-lg">How do I restore my purchases?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fa-solid fa-chevron-down text-brand-muted"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-brand-muted leading-relaxed">
+                        Go to the Settings page within the app and tap on "Restore Purchases". Ensure you are logged in with the same Apple ID used to make the purchase.
+                    </div>
+                </details>
+
+                <details class="group bg-brand-card rounded-2xl border border-white/5 overflow-hidden">
+                    <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                        <span class="font-semibold text-lg">Is my data secure?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fa-solid fa-chevron-down text-brand-muted"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-brand-muted leading-relaxed">
+                        Absolutely. Reminday uses iCloud to sync your data, meaning it is encrypted and accessible only by you. We do not have access to your personal events.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker border-t border-white/5 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <!-- Logo -->
+                <div class="text-2xl font-bold tracking-tight">
+                    Reminday
+                </div>
+
+                <!-- Socials -->
+                <div class="flex gap-6">
+                    <a href="#" class="w-10 h-10 rounded-full bg-brand-card flex items-center justify-center text-brand-muted hover:bg-brand-default hover:text-white transition-all transform hover:scale-110">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-brand-card flex items-center justify-center text-brand-muted hover:bg-brand-default hover:text-white transition-all transform hover:scale-110">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-sm text-brand-muted">
+                <p>&copy; 2024 Reminday. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Script for Scroll Reveal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            // Initial reveal
+            setTimeout(() => {
+                reveals.forEach(el => el.classList.add('active'));
+            }, 100);
+            
+            // Mobile Menu Close on Link Click
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
